@@ -1,7 +1,7 @@
 #= 
 Functions to build and solve STAP for multiple OD pairs. 
-Flows are considered based on destination only, in order to
-reduce the number of variables per link.
+Flows are considered based on destination only (destination based), 
+in order to reduce the number of variables per link.
 =# 
 
 

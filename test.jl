@@ -1,4 +1,4 @@
-using LightGraphs, Test, Gurobi, TrafficNetworks2, SkeletonCities2 
+using LightGraphs, Test, Gurobi, TrafficNetworks2, SkeletonCities2, LinearAlgebra, SparseArrays
 
 #const GRB_ENV = Gurobi.Env()
 

@@ -64,12 +64,14 @@ for the STAP to be solved.
 Note that it should be flexible and be able to handle a 
 single demand value or a demand range.
 """
-function multi_pair_stap!(sd::StapData)
+function multi_pair_stap!(sd::StapData; func=multi_pair_stap_nc)
+    
+    stap_solve = func
     
     for i in 1:sd.d_steps
         demands = sd.demand_ranges[:,i]
     
-        x = multi_pair_stap(sd.rn, sd.od_matrix, demands, regime=sd.regime)
+        x = stap_solve(sd.rn, sd.od_matrix, demands, regime=sd.regime)
         
         sd.flows[:,:,i] = x
         sd.agg_flows[:,i] = sum(x, dims=2)
