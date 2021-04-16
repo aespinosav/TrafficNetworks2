@@ -13,10 +13,10 @@ export
     # From ta_solve_db.jl
     dest_nodes_flows, num_flows, make_od_mat_and_sort_d, 
     make_demands_mat, multi_pair_stap,
-    # From stap_obj.jl
+    # From stap_object.jl
     StapData, multi_pair_stap!
 
 include("road_networks.jl")
 include("ta_solve_db.jl")
-include("stap_obj.jl")
+include("stap_object.jl")
 end
