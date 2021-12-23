@@ -131,7 +131,7 @@ function mixed_stap_comb_diag(rn,
 
         for i in 1:m
             for j in 1:n_ods
-                unfix(x[i,j]) 
+                unfix(x[i,j])
             end
         end
         @constraint(stap, x .>= 0)
@@ -151,8 +151,8 @@ function mixed_stap_comb_diag(rn,
         x_new = sum(x_val, dims=2)[:]
         y_new = sum(y_val, dims=2)[:]
 
-        T_lower = obj_value_old + 
-                  dot(∇T_x(x_old, y_old), (x_new - x_old)) + 
+        T_lower = obj_value_old +
+                  dot(∇T_x(x_old, y_old), (x_new - x_old)) +
                   dot(∇T_y(x_old, y_old), (y_new - y_old))
 
         #LBD = maximum([LBD, T_lower])
@@ -180,7 +180,7 @@ end
 function mixed_stap_comb(rn,
                          ods,
                          demands,
-                         γ; 
+                         γ;
                          tolerance=10^-6,
                          max_iters=50)
 
@@ -195,7 +195,7 @@ function mixed_stap_comb(rn,
     a = rn.edge_params[:a]
     B = diagm(rn.edge_params[:b])
 
-    me_obj_func(x, y) = sum( 0.5*B[i,i]*(x[i]+y[i])^2 + 
+    me_obj_func(x, y) = sum( 0.5*B[i,i]*(x[i]+y[i])^2 +
                              a[i]*x[i] + y[i]*a[i]*0.5 for i in 1:length(x))
 
     d_vects_hv = SparseVector{Float64,Int64}[]
