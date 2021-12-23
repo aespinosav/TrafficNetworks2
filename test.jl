@@ -37,3 +37,38 @@ multi_pair_stap!(sd4)
 
 sd5 = StapData(rn2, [(1,50), (10, 41)], [drs 5drs], :ue, true)
 multi_pair_stap!(sd5)
+
+###
+### Test mixed stap
+###
+
+A = [0 1 1 0; 0 0 1 1; 0 0 0 1; 0 0 0 0]
+g = SimpleDiGraph(A)
+e_att = Dict(:a => [2, 4, 1, 4, 2], :b => [4, 2, 1, 2, 4])
+n_att = Dict(:pos => [0.0 0.0; 1.0 1.0; 1.0 -1.0; 2.0 0.0])
+
+rn = RoadNetwork(g, e_att, n_att)
+
+#od_single = od_matrix_from_pair(rn, 1, 4)
+ods = [(1, 4)]
+demands = [10.0]
+γ = 0.3
+
+#ue_sol = multi_pair_stap_nc(rn, ods, demands)
+mixed_stap_comb(rn, ods, demands, γ)
+
+ods = [(1, 4), (3, 4)]
+demands = [1.0, 0.4]
+mixed_stap_comb(rn, ods, demands, γ)
+
+###
+### Test mixed stap on larger net
+###
+
+
+mg = αβ_network_meta(10, 0.1, 1.5)
+rn = skel2rn(mg)
+ods = [(1, 100)]
+demands = [1.0]
+γ = 0.3
+mixed_stap_comb(rn, ods, demands, γ)
