@@ -16,7 +16,7 @@ export
     RoadNetwork, random_od_pairs, od_matrix_from_pair, multi_od_matrix,
     adjacency_matrix, incidence_matrix,
     # From ta_solve_db.jl
-    dest_nodes_flows, num_flows, make_od_mat_and_sort_d, 
+    dest_nodes_flows, num_flows, make_od_mat_and_sort_d,
     make_demands_mat, multi_pair_stap,
     # From ta_solve_nc.jl
     multi_pair_stap_nc,
