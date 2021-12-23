@@ -1,10 +1,15 @@
 module TrafficNetworks2
 
-using LightGraphs, LinearAlgebra, SparseArrays, JuMP, Gurobi
+using LightGraphs,
+      LinearAlgebra,
+      SparseArrays,
+      JuMP,
+      Gurobi,
+      Ipopt
 
 import Base.show,
-       LightGraphs.adjacency_matrix, 
-       LightGraphs.incidence_matrix 
+       LightGraphs.LinAlg.adjacency_matrix,
+       LightGraphs.LinAlg.incidence_matrix
 
 export
     # From road_networks.jl
@@ -16,10 +21,19 @@ export
     # From ta_solve_nc.jl
     multi_pair_stap_nc,
     # From stap_object.jl
-    StapData, multi_pair_stap!
+    StapData, # multi_pair_stap!,
+    # From mixed_ta_comb.jl
+    mixed_stap_comb,
+    # From edge_route_incidence.jl
+    all_simple_paths, edge_route_incidence
 
+# Fix incidence matrix (not needed for more up-to-date version of LightGraphs)
+include("incidence_matrix_fix.jl")
 include("road_networks.jl")
 include("ta_solve_db.jl")
 include("ta_solve_nc.jl")
 include("stap_object.jl")
+include("mixed_ta_comb.jl")
+# This file imports allsimplepaths.jl (not written by me)
+include("edge_route_incidence.jl")
 end
