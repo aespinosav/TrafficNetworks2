@@ -21,29 +21,29 @@ function StapData(rn,
                   demand_ranges,
                   regime,
                   dest_based) where {T}
-                  
+
     sorted_indices = sortperm(od_list)
     sorted_od_list = od_list[sorted_indices]
     OD = multi_od_matrix(rn, sorted_od_list)
-    
+
     if length(size(demand_ranges))>1
         d_steps = size(demand_ranges)[2]
     else
         d_steps = 1
     end
-    
+
     # Order demand ranges according to index of ordered ODs
     sorted_ranges = demand_ranges[sorted_indices,:]
-    
+
     if dest_based == true
         nf = num_flows(OD)
     else
         nf = length(od_list)
     end
-    
+
     flows = zeros(Float64, ne(rn.g), nf, d_steps)
     agg_flows = zeros(Float64, ne(rn.g), d_steps)
-     
+
     StapData(rn,
              OD,
              sorted_od_list,
@@ -53,9 +53,10 @@ function StapData(rn,
              regime,
              dest_based,
              flows,
-             agg_flows)         
+             agg_flows)
 end
 
+#=
 """
 Calculates traffic assignemnt for a given StapData object
 that has been constructed with all relevant information
@@ -65,15 +66,17 @@ Note that it should be flexible and be able to handle a
 single demand value or a demand range.
 """
 function multi_pair_stap!(sd::StapData; func=multi_pair_stap_nc)
-    
+
+    #This doesn't work... because I have defined the arguments differently
     stap_solve = func
-    
+
     for i in 1:sd.d_steps
         demands = sd.demand_ranges[:,i]
-    
+
         x = stap_solve(sd.rn, sd.od_matrix, demands, regime=sd.regime)
-        
+
         sd.flows[:,:,i] = x
         sd.agg_flows[:,i] = sum(x, dims=2)
     end
 end
+=#
