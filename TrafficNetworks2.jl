@@ -25,7 +25,9 @@ export
     # From mixed_ta_comb.jl
     mixed_stap_comb,
     # From edge_route_incidence.jl
-    all_simple_paths, edge_route_incidence
+    all_simple_paths, edge_route_incidence,
+    # From incidence_matrix_fix.jl
+    incidence_matrix
 
 # Fix incidence matrix (not needed for more up-to-date version of LightGraphs)
 include("incidence_matrix_fix.jl")
