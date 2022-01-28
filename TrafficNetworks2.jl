@@ -5,7 +5,8 @@ using LightGraphs,
       SparseArrays,
       JuMP,
       Gurobi,
-      Ipopt
+      Ipopt,
+      UnicodePlots
 
 import Base.show,
        LightGraphs.LinAlg.adjacency_matrix,
@@ -28,6 +29,8 @@ export
     all_simple_paths, edge_route_incidence,
     # From incidence_matrix_fix.jl
     incidence_matrix
+    # From plotting.jl
+    term_plot
 
 # Fix incidence matrix (not needed for more up-to-date version of LightGraphs)
 include("incidence_matrix_fix.jl")
@@ -38,4 +41,5 @@ include("stap_object.jl")
 include("mixed_ta_comb.jl")
 # This file imports allsimplepaths.jl (not written by me)
 include("edge_route_incidence.jl")
+include("plotting.jl")
 end
