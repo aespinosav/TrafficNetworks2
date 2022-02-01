@@ -28,7 +28,7 @@ export
     # From edge_route_incidence.jl
     all_simple_paths, edge_route_incidence,
     # From incidence_matrix_fix.jl
-    incidence_matrix
+    incidence_matrix,
     # From plotting.jl
     term_plot
 
