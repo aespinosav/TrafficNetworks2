@@ -9,7 +9,7 @@ using Graphs,
       UnicodePlots,
       DataStructures
 
-import Base.show,
+import Base.show
        #LightGraphs.LinAlg.adjacency_matrix,
        #LightGraphs.LinAlg.incidence_matrix
 
