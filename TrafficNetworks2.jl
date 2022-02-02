@@ -1,6 +1,6 @@
 module TrafficNetworks2
 
-using LightGraphs,
+using Graphs,
       LinearAlgebra,
       SparseArrays,
       JuMP,
