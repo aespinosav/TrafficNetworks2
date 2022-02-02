@@ -24,7 +24,7 @@ end
 
 #function RoadNetwork(mg::MetaGraph)
 #    g = SimpleDiGraph(mg)
-#    
+#
 #end
 
 function show(io::IO, rn::RoadNetwork)
@@ -82,7 +82,7 @@ From a list of OD pairs, create OD matrix for multiple pairs
 function multi_od_matrix(g::AbstractGraph, ods)
     n = nv(g)
     OD = spzeros(Int64, n, n)
-    
+
     for pair in ods
         o, d = pair
         OD += od_matrix_from_pair(g, o, d)

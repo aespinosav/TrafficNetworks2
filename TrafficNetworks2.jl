@@ -6,11 +6,12 @@ using Graphs,
       JuMP,
       Gurobi,
       Ipopt,
-      UnicodePlots
+      UnicodePlots,
+      DataStructures
 
 import Base.show,
-       LightGraphs.LinAlg.adjacency_matrix,
-       LightGraphs.LinAlg.incidence_matrix
+       #LightGraphs.LinAlg.adjacency_matrix,
+       #LightGraphs.LinAlg.incidence_matrix
 
 export
     # From road_networks.jl

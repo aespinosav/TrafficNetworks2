@@ -1,6 +1,7 @@
 #Direct copy from: https://raw.githubusercontent.com/i-aki-y/LightGraphs.jl/allsimplepath/src/traversals/allsimplepaths.jl
-
+#=
 using DataStructures
+=#
 
 """
     all_simple_paths(g, source, targets, cutoff)
